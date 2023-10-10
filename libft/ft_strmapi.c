@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 12:44:47 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/10/03 14:23:00 by alvasanc         ###   ########.fr       */
+/*   Created: 2023/10/09 11:27:33 by alvasanc          #+#    #+#             */
+/*   Updated: 2023/10/10 09:30:11 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*ptr;
-	int		start;
-	int		end;
+	int		i;
+	char	*string;
 
-	start = 0;
-	if (!s1[start])
-		return (ft_strdup(""));
-	end = ft_strlen(s1);
-	while (ft_strchr(set, s1[start]))
-		start++;
-	while (ft_strchr(set, s1[end]))
-		end--;
-	ptr = ft_substr(s1, start, (end - start) + 1);
-	return (ptr);
+	i = 0;
+	string = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!string)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		string[i] = (*f)(i, s[i]);
+		i++;
+	}
+	string[i] = '\0';
+	return (string);
 }

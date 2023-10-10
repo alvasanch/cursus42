@@ -6,7 +6,7 @@
 #    By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 14:20:04 by alvasanc          #+#    #+#              #
-#    Updated: 2023/10/03 12:44:11 by alvasanc         ###   ########.fr        #
+#    Updated: 2023/10/09 13:01:57 by alvasanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SOURCE = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
 		ft_strnstr.c ft_calloc.c ft_strdup.c ft_putchar_fd.c ft_putstr_fd.c \
 		ft_putendl_fd.c ft_putnbr_fd.c ft_substr.c ft_strjoin.c ft_strtrim.c \
-		ft_strtrim.c
+		ft_strtrim.c ft_split.c ft_itoa.c ft_striteri.c
 
 OBJECTS = $(SOURCE:.c=.o)
 
