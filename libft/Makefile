@@ -6,7 +6,7 @@
 #    By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 14:20:04 by alvasanc          #+#    #+#              #
-#    Updated: 2023/10/09 13:01:57 by alvasanc         ###   ########.fr        #
+#    Updated: 2023/10/13 10:25:50 by alvasanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,24 +19,32 @@ SOURCE = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
 		ft_strnstr.c ft_calloc.c ft_strdup.c ft_putchar_fd.c ft_putstr_fd.c \
 		ft_putendl_fd.c ft_putnbr_fd.c ft_substr.c ft_strjoin.c ft_strtrim.c \
-		ft_strtrim.c ft_split.c ft_itoa.c ft_striteri.c
+		ft_strtrim.c ft_split.c ft_itoa.c ft_striteri.c ft_strmapi.c
+		
+SOURCE_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 OBJECTS = $(SOURCE:.c=.o)
+
+OBJECTS_B = $(SOURCE_B:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-		ar rcs $(NAME) $(OBJECTS)
+		ar crs $(NAME) $(OBJECTS)
 
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
+bonus: $(OBJECTS_B)
+		ar crs $(NAME) $(OBJECTS_B)
 clean:
-				rm -f $(OBJECTS)
+				rm -f $(OBJECTS) $(OBJECTS_B)
 				
 fclean: clean
-				rm -f $(NAME)
+				rm -f $(NAME) bonus
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

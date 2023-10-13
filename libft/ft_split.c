@@ -6,11 +6,25 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:19:06 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/10/06 11:45:52 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/10/11 10:45:59 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	**ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
 
 static	int	ft_countword(char const *s, char c)
 {
@@ -54,6 +68,8 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			matrix[j++] = ft_substr(s, i, (ft_next_del(s, c, i) - i));
+			if (!matrix[j - 1])
+				return (ft_free(matrix));
 			i = ft_next_del(s, c, i);
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:50:30 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/09/21 15:00:18 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:10:48 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 	}
 	return (ft_strlen(src));
 }
-
-/*
-int	main (void)
-{
-	char *string = "Holamellamopepe";
-	char buffer[6];
-	int ret;
-
-	ret = ft_strlcpy(buffer, string, 6);
-	printf("'%s', '%s', '%d', string, buffer, ret);
-}
-*/

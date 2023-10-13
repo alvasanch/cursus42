@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 12:15:43 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/10/13 11:12:12 by alvasanc         ###   ########.fr       */
+/*   Created: 2023/10/13 10:24:13 by alvasanc          #+#    #+#             */
+/*   Updated: 2023/10/13 10:32:44 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if ((c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z')
-		|| (c >= '0' && c <= '9'))
+	t_list	*new_lst;
+	t_list	*new_node;
+
+	if (!f || !del)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
 	{
-		return (1);
+		new_node = ft_lstnew(NULL);
+		if (!new_node)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		new_node->content = f(lst->content);
+		ft_lstadd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
-	return (0);
+	return (new_lst);
 }

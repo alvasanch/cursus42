@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 12:15:43 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/10/13 11:12:12 by alvasanc         ###   ########.fr       */
+/*   Created: 2023/10/11 11:13:15 by alvasanc          #+#    #+#             */
+/*   Updated: 2023/10/11 11:31:11 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if ((c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z')
-		|| (c >= '0' && c <= '9'))
+	int		size;
+	t_list	*aux_node;
+
+	if (!lst)
+		return (0);
+	size = 1;
+	aux_node = lst;
+	while (aux_node->next)
 	{
-		return (1);
+		aux_node = aux_node->next;
+		size++;
 	}
-	return (0);
+	return (size);
 }

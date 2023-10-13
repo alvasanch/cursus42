@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 09:47:42 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/09/21 15:16:43 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:11:55 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,3 @@ int	ft_isascii(int c)
 	}
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	int	c;
-
-	c = 179;
-	
-	printf("%d", ft_isascii(c));
-}
-*/

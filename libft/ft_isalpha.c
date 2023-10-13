@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:05:08 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/09/21 15:20:21 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:12:06 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,3 @@ int	ft_isalpha(int c)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	int	c;
-
-	c = 90;
-	printf("%d", ft_isalpha(c));
-}
-*/

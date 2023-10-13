@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:45:46 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/09/21 14:59:49 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:11:40 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,3 @@ int	ft_isprint(int c)
 	}
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	int	c;
-
-	c = 30;
-
-	printf("%d", ft_isprint(c));
-}
-*/

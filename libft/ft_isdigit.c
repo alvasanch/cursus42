@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:56:39 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/09/21 14:58:57 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:11:29 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,3 @@ int	ft_isdigit(int c)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	int	c;
-
-	c = '1';
-	printf("%d", ft_isdigit(c));
-}
-*/
