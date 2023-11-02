@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:00:18 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/10/27 11:17:43 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/11/01 09:07:09 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,44 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *aux_line, char *buffer, int read_bytes)
 {
-	char	*string;
+	char	*str;
 	int		i;
 	int		j;
-	int		len1;
-	int		len2;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	string = (char *)malloc(((len1 + len2) * sizeof(char)) + 1);
-	if (!string)
+	if (!aux_line)
+		aux_line = ft_calloc(1, 1);
+	str = malloc((ft_strlen(aux_line) + read_bytes + 1));
+	if (!str)
 		return (NULL);
-	i = -1;
-	while (s1[++i])
-		string[i] = s1[i];
+	i = 0;
 	j = 0;
-	while (s2[j])
-		string[i++] = s2[j++];
-	string[i] = '\0';
-	return (string);
+	while (aux_line[j])
+		str[i++] = aux_line[j++];
+	j = 0;
+	while (j < read_bytes)
+		str[i++] = buffer[j++];
+	str[i] = '\0';
+	free (aux_line);
+	return (str);
 }
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
+	size_t	len;
+	size_t	i;
 
-	ptr = malloc(count * size);
-	if (ptr == 0 || size < 0)
-		return (0);
-	ft_bzero(ptr, (count * size));
+	i = 0;
+	len = size * count;
+	ptr = malloc(len);
+	if (ptr == NULL || ptr < 0)
+		return (NULL);
+	while (i < len)
+	{
+		((unsigned char *)ptr)[i] = '\0';
+		i++;
+	}
 	return (ptr);
 }
