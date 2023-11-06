@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:00:15 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/11/02 11:21:31 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:57:24 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,46 @@ char	*ft_read_line(int fd, char *aux_line)
 
 char	*ft_get_line(char *aux_line)
 {
+	int		i;
+	int		j;
+	char	*get_line;
+
+	i = 0;
+	while (aux_line[i] != '\0' && aux_line[i] != '\n')
+		i++;
+	get_line = ft_calloc((i + 1 +(aux_line[i] == '\n')), sizeof(char));
+	if (!get_line)
+		return (NULL);
+	j = 0;
+	while (aux_line[j] != '\0' && aux_line[j] != '\n')
+	{
+		get_line[j] = aux_line[j];
+		j++;
+	}
+	if (aux_line[j] == '\n')
+		get_line[j++] = '\n';
+	get_line[j] = '\0';
+	return (get_line);
+}
+
+char	*ft_clean_line(char *aux_line)
+{
 	
+}
+
+char	*get_next_line(int fd)
+{
+	static char		*aux_line[OPEN_MAX];
+	char			*final_line;
+
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
+	{
+		free(aux_line[fd]);
+		aux_line[fd] = NULL;
+		return (NULL);
+	}
+	aux_line[fd] = ft_read_line(fd, aux_line[fd]);
+	if (!aux_line[fd])
+		return (NULL);
+	final_line = ft_get_line(aux_line[fd]);
 }
