@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:00:15 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/11/06 12:57:24 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:17:47 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,46 @@ char	*ft_get_line(char *aux_line)
 
 char	*ft_clean_line(char *aux_line)
 {
-	
+	int		i;
+	int		j;
+	char	*new_aux_line;
+
+	i = 0;
+	while (aux_line[i] != '\0' && aux_line[i != '\n'])
+		i++;
+	if (ft_strlen(aux_line) - i <= 0)
+	{
+		free(aux_line);
+		aux_line = NULL;
+		return (NULL);
+	}
+	nex_aux_line = ft_calloc(ft_strlen(aux_line) - i +1, sizeof(char));
+	if (!new_aux_line)
+		return (NULL);
+	i++;
+	j = 0;
+	while (aux_line[i] != '\0')
+		new_aux_line[j++] = aux_line[i++];
+	free(aux_line);
+	aux_line = NULL;
+	return (new_aux_line);
 }
 
 char	*get_next_line(int fd)
 {
-	static char		*aux_line[OPEN_MAX];
+	static char		*aux_line;
 	char			*final_line;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
 	{
-		free(aux_line[fd]);
-		aux_line[fd] = NULL;
+		free(aux_line);
+		aux_line = NULL;
 		return (NULL);
 	}
-	aux_line[fd] = ft_read_line(fd, aux_line[fd]);
-	if (!aux_line[fd])
+	aux_line = ft_read_line(fd, aux_line);
+	if (!aux_line)
 		return (NULL);
-	final_line = ft_get_line(aux_line[fd]);
+	final_line = ft_get_line(aux_line);
+	aux_line = ft_clean_line(aux_line);
+	return (final_line);
 }
