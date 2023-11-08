@@ -6,7 +6,7 @@
 /*   By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:00:15 by alvasanc          #+#    #+#             */
-/*   Updated: 2023/11/07 11:17:47 by alvasanc         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:34:38 by alvasanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_get_line(char *aux_line)
 	i = 0;
 	while (aux_line[i] != '\0' && aux_line[i] != '\n')
 		i++;
-	get_line = ft_calloc((i + 1 +(aux_line[i] == '\n')), sizeof(char));
+	get_line = ft_calloc((i + 1 + (aux_line[i] == '\n')), sizeof(char));
 	if (!get_line)
 		return (NULL);
 	j = 0;
@@ -71,7 +71,7 @@ char	*ft_clean_line(char *aux_line)
 	char	*new_aux_line;
 
 	i = 0;
-	while (aux_line[i] != '\0' && aux_line[i != '\n'])
+	while (aux_line[i] != '\0' && aux_line[i] != '\n')
 		i++;
 	if (ft_strlen(aux_line) - i <= 0)
 	{
@@ -79,7 +79,7 @@ char	*ft_clean_line(char *aux_line)
 		aux_line = NULL;
 		return (NULL);
 	}
-	nex_aux_line = ft_calloc(ft_strlen(aux_line) - i +1, sizeof(char));
+	new_aux_line = ft_calloc(ft_strlen(aux_line) - i + 1, sizeof(char));
 	if (!new_aux_line)
 		return (NULL);
 	i++;
