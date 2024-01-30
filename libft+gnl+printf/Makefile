@@ -6,7 +6,7 @@
 #    By: alvasanc <alvasanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 14:20:04 by alvasanc          #+#    #+#              #
-#    Updated: 2024/01/29 12:38:53 by alvasanc         ###   ########.fr        #
+#    Updated: 2024/01/30 11:23:27 by alvasanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ bonus_print: $(OBJECTS_PRINT)
 		ar rcs $(NAME) $(OBJECTS_PRINT)
 		
 clean:
-				rm -f $(OBJECTS) $(OBJECTS_B) $(OBJECTS_GNL) $(OBJENCTS_PRINT)
+				rm -f $(OBJECTS) $(OBJECTS_B) $(OBJECTS_GNL) $(OBJECTS_PRINT)
 				
 fclean: clean
 				rm -f $(NAME) bonus bonus_gnl bonus_print
